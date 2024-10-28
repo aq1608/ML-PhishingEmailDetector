@@ -1,0 +1,14 @@
+/**Add on to the list*/
+
+pandas
+matplotlib
+seaborn
+scikit-learn
+imblearn
+ipykernel
+nltk
+requests
+tkinter
+wordcloud
+textblob
+eml-parser
