@@ -1,0 +1,263 @@
+Delivered-To: pearlynowyanzhen@gmail.com
+Received: by 2002:a05:640c:1bcf:b0:214:48b6:8904 with SMTP id s15csp2884357eiw;
+        Tue, 22 Oct 2024 05:48:48 -0700 (PDT)
+X-Google-Smtp-Source: AGHT+IHpw8sng3hvn36z3Ru7LhF0TcGVgQL7QZ+eJb9LxxLKX3vhWPpIp0q1R9tQddjmjl4Q07CT
+X-Received: by 2002:a05:622a:56:b0:460:7b6e:9475 with SMTP id d75a77b69052e-46100f86bd4mr28725991cf.10.1729601328269;
+        Tue, 22 Oct 2024 05:48:48 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1729601328; cv=none;
+        d=google.com; s=arc-20240605;
+        b=PSh7rRlbXC0y9LOkJZtGReXjv+SYcsZy6q+x7qB43+FSqtuAadA+KHrv3rMU0QA8xR
+         b1Wu4HCa16zmiPeHz2h0w8Gp2WUjmjoNUve6ZB88v5/PQ9G74lp6O5mcORk1TZAzsm/7
+         2BSAp6LdbsHpclGE03bmCwuTlE6hs0jPJp+bXF2GJfcFTRK+s5XySSLL/ByvmUPvoPMA
+         4kKWYcaIIvT9YpbbBUTNQA90MdHKHEAZXdc6ZROW7FrJqLMp6YAK1wXKsV6oskS3sAM4
+         H3dhvNqi5GJMkEEFf34jdqaeLecBUz7Cf4XGUP8VWdR/ZxJt8OzabdP391HGQqG2M0bC
+         fGsw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
+        h=feedback-id:mime-version:subject:message-id:to:from:date
+         :dkim-signature:dkim-signature;
+        bh=BQKoyfX3FJ5GBXAbzwkGwk+X1mUaWm/ytxvBQfH0QjA=;
+        fh=+yGKcrVgzk30ZUnCjtMAc8zGuugUetRG2W4/QKn+yv4=;
+        b=S2uobqbCZEDcQW1jObC9wkRAsgTGw9Zhl68JmlkB5bipSV1EFEEsOxMJ4GyhPSovsZ
+         69euyieUbvd225t+j6sdr7iLF07j7ib5AoOnpBRfZeTQdS3fFMXPouZO5T3kLOcIOY/3
+         6GrGy1Olg2GE3lP2Wun9ABBMupnT+YFIRkTRdNqUuAtD/6ABV8A+EdD+EFfvW/kztRLp
+         3a7e3J/IdvUOGAZvDDsxkJhXlWQG8jR4DueaPTKhB5GeyCNotRqKuMahqU55YFWrhgWn
+         OQ172WLevnQ9sYPeIqOriEk6MGxCsnpgpJMj0jMuqox1loaf7v4HhUoolT4qyzmIhhnB
+         ojWw==;
+        dara=google.com
+ARC-Authentication-Results: i=1; mx.google.com;
+       dkim=pass header.i=@dbs.com header.s=xuljdsesjhiackm6s4duxuut7vaftcq4 header.b="a/AZqD5y";
+       dkim=pass header.i=@amazonses.com header.s=ug7nbtf4gccmlpwj322ax3p6ow6yfsug header.b=NVcqFwuX;
+       spf=pass (google.com: domain of 01000192b445d30e-35253158-880a-4371-b46c-4f37dbd98da4-000000@amazonses.com designates 54.240.11.137 as permitted sender) smtp.mailfrom=01000192b445d30e-35253158-880a-4371-b46c-4f37dbd98da4-000000@amazonses.com;
+       dmarc=pass (p=QUARANTINE sp=QUARANTINE dis=NONE) header.from=dbs.com
+Return-Path: <01000192b445d30e-35253158-880a-4371-b46c-4f37dbd98da4-000000@amazonses.com>
+Received: from a11-137.smtp-out.amazonses.com (a11-137.smtp-out.amazonses.com. [54.240.11.137])
+        by mx.google.com with ESMTPS id d75a77b69052e-460d3d483a1si62837241cf.551.2024.10.22.05.48.48
+        for <PEARLYNOWYANZHEN@gmail.com>
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Tue, 22 Oct 2024 05:48:48 -0700 (PDT)
+Received-SPF: pass (google.com: domain of 01000192b445d30e-35253158-880a-4371-b46c-4f37dbd98da4-000000@amazonses.com designates 54.240.11.137 as permitted sender) client-ip=54.240.11.137;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@dbs.com header.s=xuljdsesjhiackm6s4duxuut7vaftcq4 header.b="a/AZqD5y";
+       dkim=pass header.i=@amazonses.com header.s=ug7nbtf4gccmlpwj322ax3p6ow6yfsug header.b=NVcqFwuX;
+       spf=pass (google.com: domain of 01000192b445d30e-35253158-880a-4371-b46c-4f37dbd98da4-000000@amazonses.com designates 54.240.11.137 as permitted sender) smtp.mailfrom=01000192b445d30e-35253158-880a-4371-b46c-4f37dbd98da4-000000@amazonses.com;
+       dmarc=pass (p=QUARANTINE sp=QUARANTINE dis=NONE) header.from=dbs.com
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/simple;
+	s=xuljdsesjhiackm6s4duxuut7vaftcq4; d=dbs.com; t=1729601328;
+	h=Date:From:To:Message-ID:Subject:MIME-Version:Content-Type;
+	bh=zf1m8Nx5piTlYAAwVTg7ynIdDQbCHaT17m9qkm5knqk=;
+	b=a/AZqD5yDev1/3ltEoWzBHI7hkvJkt8x0GQA+VMzPLyLsYi2aRt02c8S/qyxprv6
+	mNLIxy58KGAKO7e7gMaDtrnuL2KNYB0bKZ2vAyifjn+E1UHPZwc1g1p5gGFrw0l6jL2
+	yvmU+d92MTGOaOlD95TU+pD6/2unoGrIH9wYzmGM=
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/simple;
+	s=ug7nbtf4gccmlpwj322ax3p6ow6yfsug; d=amazonses.com; t=1729601328;
+	h=Date:From:To:Message-ID:Subject:MIME-Version:Content-Type:Feedback-ID;
+	bh=zf1m8Nx5piTlYAAwVTg7ynIdDQbCHaT17m9qkm5knqk=;
+	b=NVcqFwuX3NhH5moGyKq31zA4ymO4JIm2IY72ByFE511x7jdWPC9xW8Z8ijHIhsan
+	Q2TAx3G8mMjQ6wU0aMlZ3NEbpMtoB45yacWQn4AxnMxL923weeoO5qAyRpNz70fCneU
+	v0q99WbOWd1TXATahWzG9HeBjt5ntSESPDfihnR0=
+Date: Tue, 22 Oct 2024 12:48:47 +0000
+From: "ibanking.alert@dbs.com" <ibanking.alert@dbs.com>
+To: PEARLYNOWYANZHEN@GMAIL.COM
+Message-ID: <01000192b445d30e-35253158-880a-4371-b46c-4f37dbd98da4-000000@email.amazonses.com>
+Subject: iBanking Alerts
+MIME-Version: 1.0
+Content-Type: multipart/mixed; 
+	boundary="----=_Part_289884_627357603.1729601327561"
+Feedback-ID: ::1.us-east-1.zCGt6+jE+9Zwq5YiUG7LUUJgQS1vMbAlt6lG0dcEbiU=:AmazonSES
+X-SES-Outgoing: 2024.10.22-54.240.11.137
+
+------=_Part_289884_627357603.1729601327561
+Content-Type: text/html; charset=UTF-8
+Content-Transfer-Encoding: quoted-printable
+
+
+<!DOCTYPE html><html lang=3D"en" xmlns=3D"http://www.w3.org/1999/xhtml" xml=
+ns:v=3D"urn:schemas-microsoft-com:vml" xmlns:o=3D"urn:schemas-microsoft-com=
+:office:office"><head><meta charset=3D"utf-8"><!-- utf-8 works for most cas=
+es --><meta name=3D"viewport" content=3D"width=3Ddevice-width"><!-- Forcing=
+ initial-scale shouldn't be necessary --><meta http-equiv=3D"X-UA-Compatibl=
+e" content=3D"IE=3Dedge"><!-- Use the latest (edge) version of IE rendering=
+ engine --><meta name=3D"x-apple-disable-message-reformatting"><!-- Disable=
+ auto-scale in iOS 10 Mail entirely --><meta name=3D"format-detection" cont=
+ent=3D"telephone=3Dno,address=3Dno,email=3Dno,date=3Dno,url=3Dno"><!-- Tell=
+ iOS not to automatically link certain text strings. --><meta name=3D"color=
+-scheme" content=3D"light"><meta name=3D"supported-color-schemes" content=
+=3D"light"><title>iBanking Alerts</title><!-- The title tag shows in email =
+notifications, like Android 4.4. --><!-- Web Font / @font-face : BEGIN --><=
+!-- NOTE: If web fonts are not required, lines 10 - 27 can be safely remove=
+d. --><!-- Desktop Outlook chokes on web font references and defaults to Ti=
+mes New Roman, so we force a safe fallback font. --><!-->        <style>   =
+         * {                font-family: sans-serif !important;            =
+}        </style>    <!--><!-- All other clients get the webfont reference;=
+ some will render the font and others will silently fail to the fallbacks. =
+More on that here: http://stylecampaign.com/blog/2015/02/webfont-support-in=
+-email/ --><!--><!--><!-- insert web font reference, eg: <link href=3D'http=
+s://fonts.googleapis.com/css?family=3DRoboto:400,700' rel=3D'stylesheet' ty=
+pe=3D'text/css'> --><!--<!--><!-- Web Font / @font-face : END --><!-- CSS R=
+eset : BEGIN --><style>/* What it does: Tells the email client that only li=
+ght styles are provided but the client can transform them to dark. A duplic=
+ate of meta color-scheme meta tag above. */:root {color-scheme: light;suppo=
+rted-color-schemes: light;}/* What it does: Remove spaces around the email =
+design added by some email clients. */        /* Beware: It can remove the =
+padding / margin and add a background color to the compose a reply window. =
+*/html, body {margin: 0 auto !important;padding: 0 !important;height: 100% =
+!important;width: 100% !important;}/* What it does: Stops email clients res=
+izing small text. */* {-ms-text-size-adjust: 100%;-webkit-text-size-adjust:=
+ 100%;}/* What it does: Centers email on Android 4.4 */div[style*=3D"margin=
+: 16px 0"] {margin: 0 !important;}/* What it does: forces Samsung Android m=
+ail clients to use the entire viewport */#MessageViewBody, #MessageWebViewD=
+iv {width: 100% !important;}/* What it does: Stops Outlook from adding extr=
+a spacing to tables. */table, td {mso-table-lspace: 0pt !important;mso-tabl=
+e-rspace: 0pt !important;}/* What it does: Replaces default bold style. */t=
+h {font-weight: normal;}/* What it does: Fixes webkit padding issue. */tabl=
+e {border-spacing: 0 !important;border-collapse: collapse !important;table-=
+layout: fixed !important;margin: 0 auto !important;}/* What it does: Preven=
+ts Windows 10 Mail from underlining links despite inline CSS. Styles for un=
+derlined links should be inline. */a {text-decoration: none;}/* What it doe=
+s: Uses a better rendering method when resizing images in IE. */img {-ms-in=
+terpolation-mode: bicubic;image-rendering: crisp-edges;}/* What it does: Pr=
+events Gmail from changing the text color in conversation threads. */.im {c=
+olor: inherit !important;}/* What it does: Prevents Gmail from displaying a=
+ download button on large, non-linked images. */.a6S {display: none !import=
+ant;opacity: 0.01 !important;}/* If the above doesn't work, add a .g-img cl=
+ass to any image in question. */img.g-img + div {display: none !important;}=
+        /* What it does: Removes right gutter in Gmail iOS app: https://git=
+hub.com/TedGoas/Cerberus/issues/89  */        /* Create one of these media =
+queries for each additional viewport size you'd like to fix */        /* iP=
+hone 4, 4S, 5, 5S, 5C, and 5SE */        @media only screen and (min-device=
+-width: 320px) and (max-device-width: 374px) {u ~ div .email-container {min=
+-width: 320px !important;}}        /* iPhone 6, 6S, 7, 8, and X */        @=
+media only screen and (min-device-width: 375px) and (max-device-width: 413p=
+x) {u ~ div .email-container {min-width: 375px !important;}}        /* iPho=
+ne 6+, 7+, and 8+ */        @media only screen and (min-device-width: 414px=
+) {u ~ div .email-container {min-width: 414px !important;}}</style><!-- CSS=
+ Reset : END --><!-- Progressive Enhancements : BEGIN --><style>body .devic=
+eWidth {width: 100%;}body .redbutton {width: 80%;height: 40px !important;fo=
+nt-size: 20px !important;font-weight: normal !important;}body .redbuttonWra=
+pper {width: 100%;padding: 10px 0px !important;}/* What it does: Hover styl=
+es for buttons */.button-td,  .button-a,  .button-black {transition: all 10=
+0ms ease-in;}.button-td-primary:hover,  .button-a-primary:hover,  .button-a=
+-black:hover {background: #b70000 !important;border-color: #b70000 !importa=
+nt;}.button-a-black:hover {background: #191919 !important;border-color: #19=
+1919 !important;}        /* Media Queries */        @media screen and (max-=
+width: 600px) {.email-container {width: 100% !important;margin: auto !impor=
+tant;}/* What it does: Forces table cells into full-width rows. */.stack-co=
+lumn,  .stack-column-center {display: block !important;width: 100% !importa=
+nt;max-width: 100% !important;direction: ltr !important;}/* And center just=
+ify these ones. */.stack-column-center {text-align: center !important;}/* W=
+hat it does: Generic utility class for centering. Useful for images, button=
+s, and nested tables. */.center-on-narrow {text-align: center !important;di=
+splay: block !important;margin-left: auto !important;margin-right: auto !im=
+portant;float: none !important;}table.center-on-narrow {display: inline-blo=
+ck !important;}/* What it does: Adjust typography on small screens to impro=
+ve readability */.email-container p {font-size: 15px !important;line-height=
+: 20px !important;}.email-container p.small {font-size: 12px !important;lin=
+e-height: 18px !important}.mob a {font-size: 12px !important;}.col-mob {pad=
+ding-left: 25px !important;padding-right: 25px !important;}h1, h2, p.mob-sp=
+an, .mob-span {font-size: 23px !important;line-height: 28px !important}.eve=
+n-col-mob {padding-left: 15px !important;padding-right: 15px !important;}.i=
+mg-mob {max-width: 100% !important}.img-right-mob {height: auto !important}=
+.mob-pad-no {padding: 0 !important;}.mob-side-pad {padding-left: 5px !impor=
+tant;padding-right: 5px !important;}.mob-hide {display: none !important}.mo=
+b-pad-bottom {padding-bottom: 10px !important}.table-style {font-size: 13px=
+ !important;line-height: 18px !important}.col-mob-grid {padding-left: 15px =
+!important;padding-right: 15px !important;}.height-auto {height: auto !impo=
+rtant;}}</style><!-- Progressive Enhancements : END --></head><!--The email=
+ background color (#ffffff) is defined in three places:1. body tag: for mos=
+t email clients2. center tag: for Gmail and Inbox mobile apps and web versi=
+ons of Gmail, GSuite, Inbox, Yahoo, AOL, Libero, Comcast, freenet, Mail.ru,=
+ Orange.fr3. mso conditional: For Windows 10 Mail--><body id=3D"body" width=
+=3D"100%" style=3D"margin: 0; padding: 0 !important; mso-line-height-rule: =
+exactly; background-color: #ffffff;"><center role=3D"article" aria-roledesc=
+ription=3D"email" lang=3D"en" style=3D"width: 100%; background-color: #ffff=
+ff;"><!-->    <table role=3D"presentation" border=3D"0" cellpadding=3D"0" c=
+ellspacing=3D"0" width=3D"100%" style=3D"background-color: #ffffff;">    <t=
+r>    <td>    <!--> <!-- Visually Hidden Preheader Text : BEGIN         <di=
+v style=3D"max-height:0; overflow:hidden; mso-hide:all;" aria-hidden=3D"tru=
+e">            (Optional) This text will appear in the inbox preview, but n=
+ot the email body. It can be used to supplement the email subject line or e=
+ven summarize the email's contents. Extended text preheaders (~490 characte=
+rs) seems like a better UX for anyone using a screenreader or voice-command=
+ apps like Siri to dictate the contents of an email. If this text is not in=
+cluded, email clients will automatically populate it using the text (includ=
+ing image alt text) at the start of the email's body.        </div>        =
+END --> <!-- Create white space after the desired preview text so email cli=
+ents don=E2=80=99t pull other distracting text into the inbox preview. Exte=
+nd as necessary. --> <!-- Preview Text Spacing Hack : BEGIN --><div style=
+=3D"display: none; font-size: 1px; line-height: 1px; max-height: 0px; max-w=
+idth: 0px; opacity: 0; overflow: hidden; mso-hide: all; font-family: Arial,=
+ sans-serif;"> &zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;=
+&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zw=
+nj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;=
+&nbsp; </div><!-- Preview Text Spacing Hack : END --> <!-- Email Body : BEG=
+IN --><table align=3D"center" role=3D"presentation" cellspacing=3D"0" cellp=
+adding=3D"0" width=3D"600" style=3D"margin: auto; border: 1px solid #ececec=
+" class=3D"email-container"><!--tr>  <td style=3D"padding: 15px 0px 15px; b=
+ackground-color: #ffffff; text-align: center; font-family: Arial, sans-seri=
+f; font-size: 11px;line-height: 13px;">Transactional Alerts</td></tr--><!--=
+ Email Header : BEGIN --><tr>        <td style=3D"padding: 10px 0;"><table =
+role=3D"presentation" cellspacing=3D"0" cellpadding=3D"0" border=3D"0" widt=
+h=3D"100%">            <tbody>              <tr><!-- Column : BEGIN -->    =
+            <td valign=3D"top" width=3D"50%"><table role=3D"presentation" c=
+ellspacing=3D"0" cellpadding=3D"0" border=3D"0" width=3D"100%">            =
+        <tbody>                      <tr>                        <td style=
+=3D"padding: 10px 0px; text-align: left;"><img src=3D"https://www.dbs.com.s=
+g/personal/edm/template2021/dbs/v4/images/brand-left.png" width=3D"195" hei=
+ght=3D"74" alt=3D"DBS | Live more, Bank less" border=3D"0" style=3D"height:=
+ auto; background: transparent; width: 100%; max-width: 195px;" /></td>    =
+                  </tr>                    </tbody>                  </tabl=
+e></td>                <!-- Column : END --> <!-- Column : BEGIN -->       =
+         <td valign=3D"middle" width=3D"50%"><table role=3D"presentation" c=
+ellspacing=3D"0" cellpadding=3D"0" border=3D"0" width=3D"100%">            =
+        <tbody>                      <tr>                        <td class=
+=3D"mob" style=3D"color: #000000; font-family: Arial, sans-serif; font-size=
+: 15px; line-height: 15px; padding: 10px 20px; text-align: right;">&nbsp;</=
+td>                      </tr>                    </tbody>                 =
+ </table></td>                <!-- Column : END --></tr>            </tbody=
+>          </table></td>      </tr><!-- Email Header : END --> <!-- 1 Colum=
+n Text : BEGIN --><tr>  <td style=3D"background-color: #ffffff;"><table rol=
+e=3D"presentation" cellspacing=3D"0" cellpadding=3D"0" border=3D"0" width=
+=3D"100%">      <tr>        <td class=3D"col-mob" style=3D"padding: 30px 30=
+px 15px; font-size: 15px; line-height: 20px; font-family: Arial, sans-serif=
+; color: #000000; text-align: left;"><p style=3D"margin: 0 0 15px">Transact=
+ion Ref: MB153129669673<br /><br /><br />Dear Customer,<br /><br />We refer=
+ to your FAST Interbank Funds Transfer transaction dated 22 Oct. We are ple=
+ased to confirm that the transaction was completed.<br /><table width=3D"10=
+0%" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" style=3D"background-co=
+lor:#FFFFFF; ">        <tbody><tr>          <td width=3D"25%" style=3D"bord=
+er-right:solid 2px #ffffff; border-bottom:solid 2px #ffffff;">Date & Time:<=
+/td>          <td width=3D"75%" style=3D"border-right:solid 2px #ffffff; bo=
+rder-bottom:solid 2px #ffffff;">22 Oct 20:48 (SGT)</td>        </tr><tr>   =
+       <td width=3D"25%" style=3D"border-right:solid 2px #ffffff; border-bo=
+ttom:solid 2px #ffffff; ">Amount:</td>          <td width=3D"75%" style=3D"=
+border-right:solid 2px #ffffff; border-bottom:solid 2px #ffffff;">SGD1000.0=
+0</td>        </tr><tr>          <td width=3D"25%" style=3D"border-right:so=
+lid 2px #ffffff; border-bottom:solid 2px #ffffff; ">From:</td>          <td=
+ width=3D"75%" style=3D"border-right:solid 2px #ffffff; border-bottom:solid=
+ 2px #ffffff;">My Account A/C ending 0937</td>        </tr><tr>          <t=
+d width=3D"25%" style=3D"border-right:solid 2px #ffffff; border-bottom:soli=
+d 2px #ffffff; ">To:</td>          <td width=3D"75%" style=3D"border-right:=
+solid 2px #ffffff; border-bottom:solid 2px #ffffff;">other me A/C ending 80=
+01</td>        </tr></tbody></table><br />If unauthorised, please call our =
+DBS hotline. To view transaction details, please login to digibank<br /><br=
+ />Thank you for banking with us.<br /><br />Yours faithfully<br />DBS Bank=
+ Ltd</p></td>      </tr>    </table></td></tr><!-- 1 Column Text : END --> =
+<!-- Divider : BEGIN --><tr>  <td class=3D"col-mob" style=3D"padding: 0 30p=
+x 0;"><img src=3D"https://www.dbs.com.sg/personal/edm/template2021/dbs/v3/i=
+mages/line.jpg" width=3D"540" height=3D"1" alt=3D"" border=3D"0" style=3D"w=
+idth: 100%; max-width: 540px; height: 1px; background: transparent; display=
+: block;"></td></tr><!-- Divider : END --> <!-- Disclaimer : BEGIN --> <tr>=
+        <td style=3D"background-color: #ffffff;"><table role=3D"presentatio=
+n" cellspacing=3D"0" cellpadding=3D"0" border=3D"0" width=3D"100%">        =
+    <tbody>              <tr>                <td class=3D"col-mob" style=3D=
+"padding: 20px 30px 35px; font-family: Arial, sans-serif; font-size: 13px; =
+line-height: 20px; color: #59646d; text-align: center;"><p style=3D"margin:=
+ 0;" class=3D"small">This is an auto-generated message. Please do not reply=
+ to this email. <br />                    For enquiries, visit our DBS Help=
+ & Support Page<br />                    or chat with us on DBS Digibot on =
+our official DBS website. <br />                    <br />                 =
+   DBS Bank Ltd Co. Reg. No.: 196800306E April 2022</p></td>              <=
+/tr>            </tbody>          </table></td>      </tr><!-- Disclaimer :=
+ END --> <!-->    </td>    </tr>    </table>    <!--></center></body></html=
+>
+------=_Part_289884_627357603.1729601327561--

@@ -1,0 +1,169 @@
+Delivered-To: pearlynowyanzhen@gmail.com
+Received: by 2002:a05:640c:1bcf:b0:214:48b6:8904 with SMTP id s15csp2883379eiw;
+        Tue, 22 Oct 2024 05:45:54 -0700 (PDT)
+X-Google-Smtp-Source: AGHT+IHYkeu8hdIlu6owPiXAs7V1c6UfQk4QeFoGWk53bUyipoJehnFyoGFwcFj3GEBumHiA2+DJ
+X-Received: by 2002:a05:6a20:72a0:b0:1d9:3957:9af2 with SMTP id adf61e73a8af0-1d939579b48mr17536081637.17.1729601154009;
+        Tue, 22 Oct 2024 05:45:54 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1729601153; cv=none;
+        d=google.com; s=arc-20240605;
+        b=c0ND8letAKyVaTMPnNdk5hAhpvodR8BDeabmG9DvYqc3XBeOwEtCpoWd1UmvjS2jIg
+         dDjBZIsbIOyeUeFDGL6U3X6kk8odn7t8gvNTPJZG2nwXR/K9to+VTRTyXPNxFTfjH++T
+         6dXcROtC0vtvrGOVSRysgW3TuLeq9S9sAncimNVkkcLkbs63DRl2vYDlkAArKPaS/hK8
+         WF/amN8S/GBMLxeCoW1egn+Ts1jFSJHRXxmQwl+mxDudJCidkJO+/LhMjk7B0r5vyNhe
+         pUdOZ2w8pdm4iH0PyXrHpm77m5ZnzhVTSC5ftVHfEC2+Uhl8ixnpDKRHyK/1lV3harZi
+         5iDg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
+        h=date:mime-version:subject:message-id:to:from:dkim-signature;
+        bh=YRp5jRZu/AHYXyrQVJoAoGNlrV+kiYaZ2kOByy4ei1M=;
+        fh=+yGKcrVgzk30ZUnCjtMAc8zGuugUetRG2W4/QKn+yv4=;
+        b=cEjd/LOT/AYKxprvSJ2RUqwpkNXJA8uCy79yIZ7+B0KQSSSzd5HbV2ExAphuV8EHml
+         9M4ncFCYpN3jPK6PyGpbEYLVDiP0ZqE0sioRgnHxYEChJJCad9WhxjZ4z6OS9HjMbw/c
+         wRMlq6eFQkCHKgE7zMkB15m5yhs17Tr92HhROggztNk2euETcbWEyWYTygVK6sOSYxt6
+         mBB2zaoKFfDNf6owUeaSlVi+d/Pe/3S9Lkb5lnrdsnec9ogCoMrt2dAvcNb/4UMs68Xl
+         Gk2shbVCdyzd27TaKPuDNFhcEz86ZbQL2g2E52qAZ7LZhDJ64/LEx4B+xgpk5OO4Kz3V
+         pCBg==;
+        dara=google.com
+ARC-Authentication-Results: i=1; mx.google.com;
+       dkim=pass header.i=@ocbc.com header.s=DKIM header.b="vY8Je/Jl";
+       spf=pass (google.com: domain of notifications@ocbc.com designates 203.126.194.98 as permitted sender) smtp.mailfrom=notifications@ocbc.com;
+       dmarc=pass (p=QUARANTINE sp=QUARANTINE dis=NONE) header.from=ocbc.com
+Return-Path: <notifications@ocbc.com>
+Received: from PWOMAILSG03.OCBC.COM (pwomailsg03.ocbc.com. [203.126.194.98])
+        by mx.google.com with ESMTPS id d2e1a72fcca58-71ec13390e6si5815172b3a.81.2024.10.22.05.45.53
+        for <PEARLYNOWYANZHEN@gmail.com>
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 22 Oct 2024 05:45:53 -0700 (PDT)
+Received-SPF: pass (google.com: domain of notifications@ocbc.com designates 203.126.194.98 as permitted sender) client-ip=203.126.194.98;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@ocbc.com header.s=DKIM header.b="vY8Je/Jl";
+       spf=pass (google.com: domain of notifications@ocbc.com designates 203.126.194.98 as permitted sender) smtp.mailfrom=notifications@ocbc.com;
+       dmarc=pass (p=QUARANTINE sp=QUARANTINE dis=NONE) header.from=ocbc.com
+Received: from PWOMAILSG03.OCBC.COM (unknown [127.0.0.1])
+	by IMSVA (Postfix) with ESMTP id 96607C519
+	for <PEARLYNOWYANZHEN@GMAIL.COM>; Tue, 22 Oct 2024 20:45:52 +0800 (+08)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ocbc.com; s=DKIM;
+	t=1729601152; bh=YRp5jRZu/AHYXyrQVJoAoGNlrV+kiYaZ2kOByy4ei1M=;
+	h=From:To:Date;
+	b=vY8Je/JlLV0VsbLrCwrrtXeSr+WayEKM7AIANHcwFwAb3Fy/rNtCpNf+W8A+xE4Qi
+	 2nwe3yUYD4lRitbvu0fqdEYIH1YwXEanqizH30EcI0YQmWeUvihc0BBkBVtWi32zZV
+	 1Sbm2rpKy2rH3ztMV8GI1i2aEsF6JyDczgb2gUMcCZZTxXH61LredEo9X19drPV10/
+	 BFhvWGM8fErXYTfb0jyd22d0mP1JJnoFUXxshsXI6axAsRgwQ3tuPIqYaZKCEbwMHq
+	 p4y7Mdg5/jKGWTlXpgV6GBebLNAYhB0C0dFLzUNlAnweY2j1iPcD6eZ4Mov+LEZuTv
+	 FAu8PX3LeVeVg==
+Received: from PAOMAILOS03.OCBC.COM (unknown [127.0.0.1])
+	by IMSVA (Postfix) with ESMTP id 8027AC3C7
+	for <PEARLYNOWYANZHEN@GMAIL.COM>; Tue, 22 Oct 2024 20:45:52 +0800 (+08)
+Received: from ms-email-service-1-2vpzh (unknown [10.88.62.180])
+	by PAOMAILOS03.OCBC.COM (Postfix) with ESMTP
+	for <PEARLYNOWYANZHEN@GMAIL.COM>; Tue, 22 Oct 2024 20:45:52 +0800 (+08)
+From: Notifications <notifications@ocbc.com>
+To: PEARLYNOWYANZHEN@GMAIL.COM
+Message-ID: <522744716.312921.1729601152476.JavaMail.1001800000@ms-email-service-1-2vpzh>
+Subject: Here are details of a precious metals transaction you made
+MIME-Version: 1.0
+Content-Type: multipart/mixed; 
+	boundary="----=_Part_312920_991708971.1729601152476"
+Date: Tue, 22 Oct 2024 20:45:52 +0800 (+08)
+X-TM-AS-GCONF: 00
+
+------=_Part_312920_991708971.1729601152476
+Content-Type: text/html;charset=utf-8
+Content-Transfer-Encoding: 7bit
+
+<!DOCTYPE html>
+<html>
+<body>
+<div>
+    <div bgcolor="#ffffff">
+        <div>
+            <br>
+            <br>
+            <div style="font-size:10pt;font-family:'Arial'">
+                <br>
+                Dear  PEARLYN OW YANZHEN                      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <br><br>
+                Here are details of a precious metals transaction you made:
+                <br><br>
+                Amount we purchased &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: SGD 1968.97 
+                <br>
+				Amount we sold &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: Gold (XAU) 0.54 ounce(s) 
+                <br>
+                Trade date &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: 2024-10-22 
+                <br>
+                Value date&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: 2024-10-22 
+                <br>
+                Rate&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: 3646.2480000 SGD/ oz.
+                <br>
+                Reference number&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: 2410220011206157
+                <br><br><br>
+            </div>
+            <br>
+            <br>
+            <div style="font-size:10pt;font-family:'Arial'"> The purpose of this trade confirmation is to confirm the terms and conditions of the precious metals transaction entered into between Oversea-Chinese Banking Corporation Limited (OCBC) and the addressee (the counterparty) on the trade date specified above.
+                <br><br>
+                You may log in to OCBC app for more details about your holdings. Additional terms and conditions that govern the transaction can be found below.
+                <br><br>
+                This contract is not assignable and is subject to the rules and regulations of the Association of Banks in Singapore.
+                <br><br>
+                If you find any discrepancy or error, please call us at 1800 363 3333 (or +65 6363 3333 if overseas).
+                <br><br>
+                If we do not receive any notification of any discrepancy or error from you within seven working days of the date of this confirmation, this confirmation shall be deemed to be conclusive and correct and you shall be bound by it.
+                <br><br>
+                Thank you for banking with us. We look forward to serving you again.
+            </div>
+            <br>
+            <br>
+            <div style="font-size:10pt;font-family:'Arial'">
+                <br>
+                Yours sincerely
+                <br><br>
+                Digital Business
+                <br>
+                Global Consumer Financial Services
+                <br>
+                OCBC
+                <br>
+                
+            </div>
+            <br>
+			<br>
+            <div style="font-size:8pt;font-family:'Arial'">
+                <br>
+                <u>Precious metals accounts Terms and Conditions and other provisions: </u>
+                <br><br>
+                This confirmation shall constitute a "Confirmation" as referred to in, and supplements, forms part of, and is subject to OCBC's Terms and Conditions Governing Precious Metals Accounts, as amended, replaced and/or supplemented from time to time (the "Precious Metals Accounts Terms and Conditions"). All provisions contained or incorporated by reference in the Precious Metals Accounts Terms and Conditions shall govern this transaction.
+                <br><br>
+                In the event of any inconsistency between the precious metals accounts terms and conditions and this confirmation, this confirmation shall prevail to the extent of such inconsistency.
+                <br><br>
+                The Precious Metals Accounts Terms and Conditions are to be read together with OCBC's Terms and Conditions Governing Deposit Accounts (the "Deposit Accounts Terms and Conditions"). In the event of any conflict or inconsistency between the Precious Metals Accounts Terms and Conditions and the Deposit Accounts Terms and Conditions, the Precious Metals Accounts Terms and Conditions shall prevail.
+                <br><br>
+                <u>ISDA Agreement: </u>
+                <br><br>
+                Where the parties have entered into an ISDA master agreement, as amended, replaced and/or supplemented from time to time (the "ISDA agreement"), or in the event that after the date hereof, the parties enter into the ISDA agreement, this confirmation shall also constitute a "Confirmation" as referred to in, and supplements, forms part of, and is subject to such ISDA agreement, and all provisions contained in the ISDA agreement shall additionally govern this confirmation and this transaction.
+                <br><br>
+                Additionally, (a) the definitions and provisions contained in the 2005 ISDA Commodity Definitions, as published by the International Swaps and Derivatives Association, Inc. (the "Commodity Definitions"), and (b) the "Attachment" to the 2012 ISDA FATCA Protocol (the "Protocol") as if the parties have adhered to the Protocol, are also deemed incorporated into this confirmation.
+                <br><br>
+                In the event of any inconsistency between the (i) Precious Metals Accounts Terms and Conditions and (ii) the ISDA Agreement, Commodity Definitions or the Protocol, the ISDA agreement, Commodity Definitions or the Protocol (as the case may be) shall prevail to the extent of such inconsistency.
+                <br><br>
+                <u>Foreign Account Tax and Compliance Act ("FATCA"): </u>
+                <br><br>
+                OCBC's FATCA policy (as may be amended, supplemented or replaced from time to time) ("FATCA policy") is deemed to be incorporated and forms part of the terms and conditions of this transaction, and this confirmation should be read together with the FATCA policy. In the event of any conflict or inconsistency between any of the contents of the FATCA policy and any other terms and conditions of this transaction, the contents of the FATCA policy shall prevail.
+                <br><br>
+                Go to the OCBC website > Personal Banking > Policies (found at bottom of page) > FATCA Policy
+                <br><br><br>
+                <u>Consent to Regulatory Disclosure: </u>
+                <br><br>
+                Each party agrees, acknowledges, authorises and consents to the other party ("Disclosing party") disclosing information about the first-mentioned party and/or this transaction to (a) the disclosing party's head office, branches, affiliates, professional advisers and service providers; (b) any trade repository, clearing house, centralised clearing party (including any clearing member of such clearing house or centralised clearing party) or clearing broker appointed by the disclosing party; (c) any person as required by law, regulation or order of a court of competent jurisdiction; (d) any regulatory or governmental authority; or (e) any person for any purpose that OCBC deems necessary in its sole and absolute discretion.
+            </div>
+            <br>
+            <br>
+            <div style="font-size:10pt;font-family:'Arial'">
+                Do allow us to warn you against phishing attempts involving e-mails that claim to be from OCBC. We will not send you any emails with links requesting your Access Code, PIN or One-time Password. Enter your login credentials only into the OCBC app or after accessing the OCBC website (always type out the URL to do this).
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>
+------=_Part_312920_991708971.1729601152476--
+
