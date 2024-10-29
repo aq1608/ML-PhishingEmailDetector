@@ -1,6 +1,6 @@
 import shutil
 from pathlib import Path
-from json import dumps,loads, dump
+from json import dump
 from datetime import datetime
 from parse import parse_eml, read_output
 from VirusTotal import check_url, check_hash
@@ -62,12 +62,30 @@ def upload_file():
     with open(Path("UPLOADED/test.json"),"w") as fp:
         dump(files,fp, default=json_serial)
 
+def parse_results(r_list: list):
+    """
+    Parses results into list
+    """
+
+    subject = []
+    email_prediction = []
+    url_check = []
+    file_check = []
+
+    for i in r_list:
+        subject.append(i["subject"])
+        email_prediction.append(check_email(i["sender"], i["cleaned_subject"], i["body"]))
+        url_check.append([check_url(j) for j in i["url"]])
+        file_check.append([check_hash(k) for k in i["file_hash"]])
+
+    return subject, email_prediction, url_check, file_check
+
 def main():
     
     # upload_file()
     
-    json_file = read_output(read_dirfiles(dir=Path("UPLOADED"), ext="*.json"))
-
+    uploaded_results = read_output(read_dirfiles(dir=Path("UPLOADED"), ext="*.json"))
+    subject, email_prediction, url_check, file_check = parse_results(uploaded_results)
 
 if __name__ == "__main__":
     try:
