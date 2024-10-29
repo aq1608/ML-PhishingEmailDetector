@@ -1,8 +1,11 @@
 import shutil
 from pathlib import Path
-from DATAMANIPULATION.parse import parse_eml, read_output
 from json import dumps,loads, dump
 from datetime import datetime
+from parse import parse_eml, read_output
+from VirusTotal import check_url
+from model_test import check_email
+from model_train import plot_precision_recall_curve, plot_confusion_matrix, plot_roc_curve, classification_report
 
 def extract_data():
     """
@@ -61,7 +64,7 @@ def upload_file():
 
 def main():
     
-    upload_file()
+    # upload_file()
     
     json_file = read_output(read_dirfiles(dir=Path("UPLOADED"), ext="*.json"))
 
