@@ -12,3 +12,4 @@ tkinter
 wordcloud
 textblob
 eml-parser
+bs4
