@@ -52,6 +52,9 @@ def json_serial(obj):
         serial = obj.isoformat()
         return serial
 
+def check_file(file):
+    print(file)
+
 def upload_file():
     """
     Copies eml files into UPLOADED dir
