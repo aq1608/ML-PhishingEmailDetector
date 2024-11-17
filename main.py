@@ -85,7 +85,7 @@ def parse_results(r_list: list, log_reg_model, tfidf_vectorizer):
 def main():
     
     # upload_file()
-    log_reg_model, tfidf_vectorizer = read_pkl()
+    log_reg_model, tfidf_vectorizer = read_pkl(read_dirfiles(dir=Path("PKL"), ext="*.pkl"))
     uploaded_results = read_output(read_dirfiles(dir=Path("UPLOADED"), ext="*.json"))
     subject, email_prediction, url_check, file_check = parse_results(uploaded_results, log_reg_model, tfidf_vectorizer)
 

@@ -150,16 +150,16 @@ def plot_precision_recall_curve(y_test, y_pred_proba):
 
 # ------------------------------ Testing models ------------------------------
 
-def read_pkl():
+def read_pkl(files: list):
     """
     Reads pickled files for model testing
     
     Returns Logistic Regression and TF-IDF Vectorizer values
     """
-    with open('logistic_regression_model.pkl', 'rb') as model_file:
+    with open(files[0], 'rb') as model_file:
         log_reg_model = load(model_file)
 
-    with open('tfidf_vectorizer.pkl', 'rb') as vectorizer_file:
+    with open(files[1], 'rb') as vectorizer_file:
         tfidf_vectorizer = load(vectorizer_file)
     
     return log_reg_model, tfidf_vectorizer
