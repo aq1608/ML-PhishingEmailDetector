@@ -1,3 +1,6 @@
+# Adapted from another github https://github.com/Hermie-Wormie/Phishing-Email-Detector
+# Will be changed soon
+
 import hashlib
 import requests
 
@@ -6,32 +9,32 @@ VT_URL = 'https://www.virustotal.com/vtapi/v2/url/report'
 VT_FILE = 'https://www.virustotal.com/vtapi/v2/file/report'
 
 
-def file_to_hash(file_path):
-    """
-    Computes the SHA-256 hash of the file located at the given file path.
+# def file_to_hash(file_path):
+#     """
+#     Computes the SHA-256 hash of the file located at the given file path.
 
-    Parameters:
-    file_path (str): The path to the file that needs to be hashed.
+#     Parameters:
+#     file_path (str): The path to the file that needs to be hashed.
 
-    Returns:
-    str: The SHA-256 hash of the file, represented as a hexadecimal string.
+#     Returns:
+#     str: The SHA-256 hash of the file, represented as a hexadecimal string.
 
-    How it works:
-    - Opens the file in binary mode to ensure it reads the raw bytes.
-    - Reads the file in chunks (4096 bytes) to avoid loading large files entirely into memory.
-    - Updates the hash object incrementally with each chunk of data.
-    - After reading the entire file, returns the final SHA-256 hash as a hex string.
+#     How it works:
+#     - Opens the file in binary mode to ensure it reads the raw bytes.
+#     - Reads the file in chunks (4096 bytes) to avoid loading large files entirely into memory.
+#     - Updates the hash object incrementally with each chunk of data.
+#     - After reading the entire file, returns the final SHA-256 hash as a hex string.
 
-    Exceptions:
-    - If the file does not exist or cannot be opened, an IOError (or FileNotFoundError) will be raised.
-    """
-    sha256_hash = hashlib.sha256()
+#     Exceptions:
+#     - If the file does not exist or cannot be opened, an IOError (or FileNotFoundError) will be raised.
+#     """
+#     sha256_hash = hashlib.sha256()
 
-    with open(file_path, "rb") as file:
-        for byte_block in iter(lambda: file.read(4096), b""):
-            sha256_hash.update(byte_block)
+#     with open(file_path, "rb") as file:
+#         for byte_block in iter(lambda: file.read(4096), b""):
+#             sha256_hash.update(byte_block)
 
-    return sha256_hash.hexdigest()
+#     return sha256_hash.hexdigest()
 
 
 def check_hash(file_hash):
