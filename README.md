@@ -4,7 +4,7 @@ Instructions to run the program:
 
         pip install -r requirements.txt
 
-2. Go to this link and upload your eml files
+2. Go to this link and upload your eml files (EXPERIMENTAL)
 
         https://aq1608.github.io/ML-PhishingEmailDetector/
 
