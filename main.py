@@ -3,7 +3,7 @@ from pathlib import Path
 from json import dump
 from datetime import datetime
 from parse import parse_eml, read_output
-from VirusTotal import check_url, check_hash
+from vt import check_url, check_hash
 from model import plot_precision_recall_curve, plot_confusion_matrix, plot_roc_curve, classification_report, check_email, read_pkl
 
 def extract_data():
