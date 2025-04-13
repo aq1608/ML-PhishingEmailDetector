@@ -10,33 +10,6 @@ VT_URL = 'https://www.virustotal.com/api/v3/urls/'
 VT_FILE = 'https://www.virustotal.com/api/v3/files/'
 
 
-# def file_to_hash(file_path):
-#     """
-#     Computes the SHA-256 hash of the file located at the given file path.
-
-#     Parameters:
-#     file_path (str): The path to the file that needs to be hashed.
-
-#     Returns:
-#     str: The SHA-256 hash of the file, represented as a hexadecimal string.
-
-#     How it works:
-#     - Opens the file in binary mode to ensure it reads the raw bytes.
-#     - Reads the file in chunks (4096 bytes) to avoid loading large files entirely into memory.
-#     - Updates the hash object incrementally with each chunk of data.
-#     - After reading the entire file, returns the final SHA-256 hash as a hex string.
-
-#     Exceptions:
-#     - If the file does not exist or cannot be opened, an IOError (or FileNotFoundError) will be raised.
-#     """
-#     sha256_hash = hashlib.sha256()
-
-#     with open(file_path, "rb") as file:
-#         for byte_block in iter(lambda: file.read(4096), b""):
-#             sha256_hash.update(byte_block)
-
-#     return sha256_hash.hexdigest()
-
 
 def check_hash(file_hash: str):
     """
@@ -167,34 +140,45 @@ def url_scan_results(result):
         - positives (int): The number of antivirus engines that flagged the URL as malicious.
         - permalink (str): A direct link to the VirusTotal report for this URL.
 
-    str: "Clean URL" 
-        - if the URL is not flagged by any antivirus engines.
-
     str: "URL not found in VirusTotal database" 
         - if the URL is not present in VirusTotal's database.
 
-    str: "No result returned from VirusTotal" 
-        - if the result is unexpectedly empty.
-
     How it works:
-    - Checks if the `response_code` is 1, indicating the URL was found in the VirusTotal database.
-    - If positive detections exist, returns the number of positives and the report link.
-    - If no positives, returns that the URL is clean.
+    - Checks if data attributes is present in the response, indicating the information found associated with the URL.
+    - If detected as malicious, returns the results pertaining to malicious detections.
+    - Else if detected as suspicious, returns the results pertaining to suspicious detections.
+    - Else if detected as harmless, returns the results pertaining to malicious detections.
     - If the URL is not found in the database or if no result is returned, handles those cases appropriately.
 
     Side Effects:
     - None.
     """
-    if result['response_code'] == 1:
-        if result['positives'] > 0:
-            num_positive = result['positives']
-            vt_link = result['permalink']
-            return num_positive, vt_link
+    results = []
+    try:
+        if result["data"]["attributes"]:
+            if result["data"]["attributes"]["last_analysis_stats"]["malicious"] > 0:
+                for x,y in result["data"]["attributes"]["last_analysis_results"].items():
+                    if y["category"] == "malicious":
+                        results.append(y)
+                
+                return results
+            
+            elif result["data"]["attributes"]["last_analysis_stats"]["suspicious"] > 0:
+                for x,y in result["data"]["attributes"]["last_analysis_results"].items():
+                    if y["category"] == "suspicious":
+                        results.append(y)
+                
+                return results
 
-        else:
-            return "Clean URL"
+            else:
+                for x,y in result["data"]["attributes"]["last_analysis_results"].items():
+                    if y["category"] == "harmless":
+                        results.append(y)
+            
+                return results
         
-    else:
+    except Exception as e:
+        print(e)
         return "URL not found in VirusTotal database"
 
 
