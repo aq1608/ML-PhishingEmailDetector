@@ -2,7 +2,7 @@ import shutil
 from pathlib import Path
 from json import dump
 from datetime import datetime
-from parse import parse_eml, read_output
+from parse import parse_eml, read_output, read_dirfiles
 from vt import check_url, check_hash
 from model import plot_precision_recall_curve, plot_confusion_matrix, plot_roc_curve, classification_report, check_email, read_pkl
 
@@ -33,15 +33,6 @@ def extract_data():
 
     return datasets
 
-def read_dirfiles(dir: Path, ext: str):
-    """
-    Reads a directory
-    Returns all items in directory with specific extension
-    """
-    uploads: list[Path] = []
-    uploads.extend(dir.glob(ext))
-
-    return uploads
 
 def json_serial(obj):
     """
@@ -85,8 +76,11 @@ def parse_results(r_list: list, log_reg_model, tfidf_vectorizer):
 def main():
     
     # upload_file()
-    log_reg_model, tfidf_vectorizer = read_pkl(read_dirfiles(dir=Path("PKL"), ext="*.pkl"))
+    
     uploaded_results = read_output(read_dirfiles(dir=Path("UPLOADED"), ext="*.json"))
+    
+    log_reg_model, tfidf_vectorizer = read_pkl(read_dirfiles(dir=Path("PKL"), ext="*.pkl"))
+    
     subject, email_prediction, url_check, file_check = parse_results(uploaded_results, log_reg_model, tfidf_vectorizer)
 
 if __name__ == "__main__":

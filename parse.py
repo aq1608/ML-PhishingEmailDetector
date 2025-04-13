@@ -4,6 +4,17 @@ from json import load
 from DATAMANIPULATION.data_clean import replace_whitespaces, replace_url, process_text, join_list
 from functools import reduce
 from bs4 import BeautifulSoup
+from pathlib import Path
+
+def read_dirfiles(dir: Path, ext: str):
+    """
+    Reads a directory
+    Returns all items in directory with specific extension
+    """
+    uploads: list[Path] = []
+    uploads.extend(dir.glob(ext))
+
+    return uploads
 
 def parse_eml(email_path: list):
     """
@@ -66,6 +77,12 @@ def read_output(json_path: list):
         except Exception as e:
             print(e)
             result["url"] = ""
+        finally:
+            if result["url"] != "":
+                url_lst = []
+                for i in result["url"]:
+                    url_lst.extend(i)
+                result["url"] = url_lst
 
         try:
             result["file_hash"] = [i["hash"] for i in item["body"]]
@@ -73,10 +90,10 @@ def read_output(json_path: list):
             print(e)
             result["file_hash"] = ""
         
-        # try:
-        #     result["attachments"] = []
-        # except Exception as e:
-        #     print(e)
+        try:
+            result["attachments"] = []
+        except Exception as e:
+            print(e)
         
         results.append(result)
     

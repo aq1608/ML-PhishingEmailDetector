@@ -1,12 +1,13 @@
 # Adapted from another github https://github.com/Hermie-Wormie/Phishing-Email-Detector
 # Will be changed soon
 
+import base64
 import hashlib
 import requests
 
-API_KEY = 'Your_VT_API_Key'
-VT_URL = 'https://www.virustotal.com/vtapi/v2/url/report'
-VT_FILE = 'https://www.virustotal.com/vtapi/v2/file/report'
+API_KEY = 'a9195e491cb9ec2e0d134ce6eff54defaf1c9c91d4690dd6cda90ddc0024ba53'
+VT_URL = 'https://www.virustotal.com/api/v3/urls/'
+VT_FILE = 'https://www.virustotal.com/api/v3/files/'
 
 
 # def file_to_hash(file_path):
@@ -37,7 +38,7 @@ VT_FILE = 'https://www.virustotal.com/vtapi/v2/file/report'
 #     return sha256_hash.hexdigest()
 
 
-def check_hash(file_hash):
+def check_hash(file_hash: str):
     """
     Sends a request to the VirusTotal API to check if the file with the provided hash 
     has been analyzed before and returns the result.
@@ -65,8 +66,9 @@ def check_hash(file_hash):
     Exceptions:
         - If the request fails, it returns an HTTP error status code message.
     """
-    params = {'apikey': API_KEY, 'resource': file_hash}
-    response = requests.get(VT_FILE, params=params)
+    headers = {'accept': 'application/json', 'x-apikey': API_KEY}
+    url = VT_FILE + file_hash
+    response = requests.get(url, headers=headers)
 
     if response.status_code == 200:
         result = response.json()
@@ -111,7 +113,7 @@ def hash_scan_results(result):
         return "Hash of file not found in VirusTotal database."
 
 
-def check_url(url):
+def check_url(url: str):
     """
     Sends a request to the VirusTotal API to check the status of the given URL and returns the scan result.
 
@@ -137,8 +139,10 @@ def check_url(url):
     Exceptions:
     - If the request fails, returns the HTTP status code indicating the error.
     """
-    params = {'apikey': API_KEY, 'resource': url}
-    response = requests.get(VT_URL, params=params)
+    headers = {'accept': 'application/json', 'x-apikey': API_KEY}
+    url_id = base64.urlsafe_b64encode(url.encode()).decode().strip("=")
+    vt_url = VT_URL + url_id
+    response = requests.get(vt_url, headers=headers)
 
     if response.status_code == 200:
         result = response.json()
@@ -198,7 +202,7 @@ if __name__ == "__main__":
 
     # Test malicious url:
     url = "http://www.myetherevvalliet.com/"
-    # print(check_url(url))
+    print(check_url(url))
 
     # Test malicious hash:
     hash = "b1b74ff5c67cfdc16f1cb30db9b885046c4c5d71af575a2d3de4a79918c1ce89"

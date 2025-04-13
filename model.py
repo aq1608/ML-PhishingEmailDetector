@@ -7,7 +7,7 @@ from sklearn.metrics import accuracy_score, precision_score, recall_score, f1_sc
 import matplotlib.pyplot as plt
 import seaborn as sns
 from DATAMANIPULATION.data_analysis import read_files
-from main import read_dirfiles
+from parse import read_dirfiles
 from pickle import load
 
 def train_model():
