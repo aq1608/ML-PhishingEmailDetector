@@ -1,14 +1,11 @@
-# Adapted from another github https://github.com/Hermie-Wormie/Phishing-Email-Detector
-# Will be changed soon
+# Inspired by https://github.com/Hermie-Wormie/Phishing-Email-Detector
 
 import base64
-import hashlib
 import requests
 
 API_KEY = 'a9195e491cb9ec2e0d134ce6eff54defaf1c9c91d4690dd6cda90ddc0024ba53'
 VT_URL = 'https://www.virustotal.com/api/v3/urls/'
 VT_FILE = 'https://www.virustotal.com/api/v3/files/'
-
 
 
 def check_hash(file_hash: str):
@@ -66,23 +63,34 @@ def hash_scan_results(result):
         - positives (int): The number of antivirus engines that flagged the file as malicious.
         - permalink (str): A direct link to the VirusTotal report for this file.
 
-    str: "The file is clean." 
-        - if no antivirus engines flagged the file as malicious.
-
     str: "Hash of file not found in VirusTotal database." 
         - if the file hash is not present in VirusTotal's database.
     """
-    if result['response_code'] == 1:
+    results = {}
+    try:
+        if result["data"]["attributes"]:
+            if result["data"]["attributes"]["last_analysis_stats"]["malicious"] > 0:
+                for x,y in result["data"]["attributes"]["last_analysis_results"].items():
+                    if y["category"] == "malicious":
+                        results.update({x:y})
+                
+                return results
+            
+            elif result["data"]["attributes"]["last_analysis_stats"]["suspicious"] > 0:
+                for x,y in result["data"]["attributes"]["last_analysis_results"].items():
+                    if y["category"] == "suspicious":
+                        results.update({x:y})
+                
+                return results
 
-        if result['positives'] > 0:
-            num_positives = result['positives']
-            vt_link = result['permalink']
-            return num_positives, vt_link
-
-        else:
-            return "The file is clean."
+            else:
+                for x,y in result["data"]["attributes"]["last_analysis_results"].items():
+                    if y["category"] == "harmless":
+                        results.update({x:y})
+            
+                return results
         
-    else:
+    except Exception as e:
         return "Hash of file not found in VirusTotal database."
 
 
@@ -153,27 +161,27 @@ def url_scan_results(result):
     Side Effects:
     - None.
     """
-    results = []
+    results = {}
     try:
         if result["data"]["attributes"]:
             if result["data"]["attributes"]["last_analysis_stats"]["malicious"] > 0:
                 for x,y in result["data"]["attributes"]["last_analysis_results"].items():
                     if y["category"] == "malicious":
-                        results.append(y)
+                        results.update({x:y})
                 
                 return results
             
             elif result["data"]["attributes"]["last_analysis_stats"]["suspicious"] > 0:
                 for x,y in result["data"]["attributes"]["last_analysis_results"].items():
                     if y["category"] == "suspicious":
-                        results.append(y)
+                        results.update({x:y})
                 
                 return results
 
             else:
                 for x,y in result["data"]["attributes"]["last_analysis_results"].items():
                     if y["category"] == "harmless":
-                        results.append(y)
+                        results.update({x:y})
             
                 return results
         
