@@ -2,8 +2,8 @@
 
 import base64
 import requests
+from constants import API_KEY
 
-API_KEY = 'a9195e491cb9ec2e0d134ce6eff54defaf1c9c91d4690dd6cda90ddc0024ba53'
 VT_URL = 'https://www.virustotal.com/api/v3/urls/'
 VT_FILE = 'https://www.virustotal.com/api/v3/files/'
 
