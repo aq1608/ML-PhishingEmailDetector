@@ -2,10 +2,7 @@
 
 import base64
 import requests
-from constants import API_KEY
-
-VT_URL = 'https://www.virustotal.com/api/v3/urls/'
-VT_FILE = 'https://www.virustotal.com/api/v3/files/'
+from constants import API_KEY, VT_FILE, VT_URL
 
 
 def check_hash(file_hash: str):
